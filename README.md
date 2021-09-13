@@ -184,6 +184,8 @@ and no mounts section, but there is the same mounts section in root
 
 Despite the difference in *inspect* json there is no difference in behaviour.
 
+Now it is pretty clear that docker has in it's *inspect* in "HostConfig" section a "Bind" section which corresponds to `-v` or `--volume` command line switch and a "Mounts" section which corresponds to `--mount` command line switch. As stated in docs the `--volume -v` is an old style and the `--mount` is the state-of-the-art option.
+
 ### Adding another volume
 
 Specifying another volume which has no in-container destination causes the destination to be created in the container. Running `docker run -ti --rm -v volume1:/testvol1 -v /testvol2 test:2` creates an anonymous volume and mounts it to /testvol2 in container which is created.
